@@ -10,7 +10,7 @@ layout: layouts/base.njk
       {% if tags %}
         <span> · </span>
         {% for tag in tags %}
-          <a href="/topics/{{ tag | slugify }}/">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
+          <a href="{{ ('/topics/' + (tag | slugify) + '/') | url }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
       {% endif %}
       <span> · </span>
