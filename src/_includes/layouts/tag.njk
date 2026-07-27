@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+---
+
+<article>
+  <h1>{{ tag }}</h1>
+
+  <section class="post-list-section">
+    <ul class="post-list">
+      {% set count = 0 %}
+      {% for post in collections.posts | reverse %}
+        {% if tag in post.data.tags %}
+          {% set count = count + 1 %}
+          <li class="post-item">
+            <time class="post-date">{{ post.date | yearMonth }}</time>
+            <a href="{{ post.url | url }}" class="post-title">{{ post.data.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>

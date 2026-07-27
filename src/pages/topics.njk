@@ -1,0 +1,10 @@
+---
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /topics/{{ tag | slugify }}/index.html
+eleventyComputed:
+  title: "{{ tag }}"
+layout: layouts/tag.njk
+---

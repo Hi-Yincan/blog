@@ -40,6 +40,11 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
+  // Slugify filter for tags (supports Chinese)
+  eleventyConfig.addFilter("slugify", (str) => {
+    return encodeURIComponent(String(str).trim());
+  });
+
   // Collections
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("content/posts/*.md")
