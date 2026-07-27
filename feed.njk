@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yincan Huang</title>
+  <subtitle>Ideas, essays, and projects.</subtitle>
+  <link href="https://hi-yincan.github.io/blog/feed.xml" rel="self"/>
+  <link href="https://hi-yincan.github.io/blog/"/>
+  <updated>{{ collections.posts[0].date.toISOString() }}</updated>
+  <id>https://hi-yincan.github.io/blog/</id>
+  <author>
+    <name>Yincan Huang</name>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://hi-yincan.github.io{{ post.url | url }}"/>
+    <updated>{{ post.date.toISOString() }}</updated>
+    <id>https://hi-yincan.github.io{{ post.url | url }}</id>
+    <content type="html"><![CDATA[
+      {{ post.templateContent | safe }}
+    ]]></content>
+  </entry>
+  {%- endfor %}
+</feed>
