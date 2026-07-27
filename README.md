@@ -78,20 +78,15 @@ git push origin main
 
 ### 中文文档（人类可读）
 
-- **[文档导航](docs4human/README.md)** - 所有文档的入口
-- **[项目介绍](docs4human/项目介绍.md)** - 设计理念、技术架构
-- **[开发指南](docs4human/开发指南.md)** - 环境配置、开发工作流
-- **[发布流程](docs4human/发布流程.md)** - 文章发布、内容管理
-- **[设计说明](docs4human/设计说明.md)** - Flexoki 配色、布局系统
-- **[常见问题](docs4human/常见问题.md)** - FAQ、故障排除
+- **[项目架构](doc4human/项目架构.md)** - 完整的系统架构说明
+- **[技术规范](doc4human/技术规范.md)** - 代码规范、设计原则
+- **[操作手册](doc4human/操作手册.md)** - 日常使用指南
 
 ### 技术文档（Agent 可读）
 
-- **[文档索引](docs/README.md)** - Agent 文档导航
-- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - 技术架构
-- **[STRUCTURE.md](docs/STRUCTURE.md)** - 目录结构
-- **[WORKFLOW.md](docs/WORKFLOW.md)** - CI/CD 流程
-- **[DECISIONS.md](docs/DECISIONS.md)** - 架构决策记录
+- **[CLAUDE.md](CLAUDE.md)** - Agent 快速参考地图
+- **[技术参考](doc/references/technical-reference.md)** - 技术细节
+- **[设计系统](doc/design-docs/design-system.md)** - 设计规范
 
 ---
 

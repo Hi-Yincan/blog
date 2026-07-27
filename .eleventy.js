@@ -40,9 +40,16 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
 
-  // Slugify filter for tags (supports Chinese)
+  // Slugify filter for tags (use simple lowercase, replace spaces with dash)
   eleventyConfig.addFilter("slugify", (str) => {
-    return encodeURIComponent(String(str).trim());
+    return String(str)
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w一-龥\-]+/g, '') // Keep Chinese, alphanumeric, dash
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
   });
 
   // Collections
