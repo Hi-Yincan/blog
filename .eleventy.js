@@ -1,10 +1,10 @@
 module.exports = function(eleventyConfig) {
-  // Copy content assets
-  eleventyConfig.addPassthroughCopy("content/assets");
+  // Copy content assets to /assets/
+  eleventyConfig.addPassthroughCopy({"content/assets": "assets"});
 
-  // Copy styles and scripts
-  eleventyConfig.addPassthroughCopy("src/styles");
-  eleventyConfig.addPassthroughCopy("src/js");
+  // Copy styles and scripts to root-level directories
+  eleventyConfig.addPassthroughCopy({"src/styles": "styles"});
+  eleventyConfig.addPassthroughCopy({"src/js": "js"});
 
   // Watch for changes
   eleventyConfig.addWatchTarget("src/styles/");
