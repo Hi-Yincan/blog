@@ -11,7 +11,14 @@ fi
 
 TITLE="$1"
 DATE=$(date +%Y-%m-%d)
-SLUG=$(echo "$TITLE" | iconv -t ascii//TRANSLIT | sed -E 's/[^a-zA-Z0-9]+/-/g' | sed -E 's/^-+|-+$//g' | tr '[:upper:]' '[:lower:]')
+# Generate slug - if contains non-ASCII, use simple date-based slug
+if echo "$TITLE" | LC_ALL=C grep -q '[^[:alnum:][:space:]-]'; then
+  # Contains non-ASCII characters (like Chinese), use date + random
+  SLUG=$(date +%H%M%S)
+else
+  # ASCII only, generate readable slug
+  SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-zA-Z0-9]+/-/g' | sed -E 's/^-+|-+$//g')
+fi
 FILENAME="content/posts/${DATE}-${SLUG}.md"
 
 # Check if file already exists
