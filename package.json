@@ -1,0 +1,21 @@
+{
+  "name": "hyc-blog",
+  "version": "1.0.0",
+  "description": "A minimalist personal blog with Flexoki color scheme",
+  "scripts": {
+    "serve": "eleventy --serve",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "keywords": [
+    "blog",
+    "11ty",
+    "flexoki",
+    "static-site"
+  ],
+  "author": "Yincan Huang",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

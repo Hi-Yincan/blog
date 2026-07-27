@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: Yincan Huang
+---
+
+<section class="intro">
+  <p>Ideas, essays, and projects.</p>
+</section>
+
+<section class="latest-posts">
+  <h2>Latest</h2>
+  <ul class="post-list">
+    {% for post in collections.posts | reverse | limit(5) %}
+    <li class="post-item">
+      <time class="post-date">{{ post.date | yearMonth }}</time>
+      <a href="{{ post.url }}" class="post-title">{{ post.data.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="topics">
+  <h2>Topics</h2>
+  <ul class="tag-list">
+    {% for tag in collections.tagList %}
+    <li><a href="/topics/{{ tag | slugify }}/">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="all-posts">
+  <h2>Archive</h2>
+  <ul class="post-list">
+    {% for post in collections.posts %}
+    <li class="post-item">
+      <time class="post-date">{{ post.date | yearMonth }}</time>
+      <a href="{{ post.url }}" class="post-title">{{ post.data.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,81 @@
+/* Flexoki Color System */
+/* Based on https://stephango.com/flexoki */
+
+:root {
+  /* Base colors - grayscale */
+  --black: #100F0F;
+  --base-950: #1C1B1A;
+  --base-900: #282726;
+  --base-850: #343331;
+  --base-800: #403E3C;
+  --base-700: #575653;
+  --base-600: #6F6E69;
+  --base-500: #878580;
+  --base-300: #B7B5AC;
+  --base-200: #CECDC3;
+  --base-150: #DAD8CE;
+  --base-100: #E6E4D9;
+  --base-50: #F2F0E5;
+  --paper: #FFFCF0;
+
+  /* Semantic colors - 600 values for light mode */
+  --red: #AF3029;
+  --orange: #BC5215;
+  --yellow: #AD8301;
+  --green: #66800B;
+  --cyan: #24837B;
+  --blue: #205EA6;
+  --purple: #5E409D;
+  --magenta: #A02F6F;
+
+  /* UI mapping - light mode */
+  --color-bg: var(--paper);
+  --color-bg-2: var(--base-50);
+  --color-ui: var(--base-100);
+  --color-ui-2: var(--base-150);
+  --color-ui-3: var(--base-200);
+  --color-tx: var(--black);
+  --color-tx-2: var(--base-600);
+  --color-tx-3: var(--base-300);
+  --color-action: var(--cyan);
+  --color-re: var(--red);
+  --color-or: var(--orange);
+  --color-ye: var(--yellow);
+  --color-gr: var(--green);
+  --color-cy: var(--cyan);
+  --color-bl: var(--blue);
+  --color-pu: var(--purple);
+  --color-ma: var(--magenta);
+}
+
+/* Dark mode */
+.theme-dark {
+  /* Semantic colors - 400 values for dark mode */
+  --red: #D14D41;
+  --orange: #DA702C;
+  --yellow: #D0A215;
+  --green: #879A39;
+  --cyan: #3AA99F;
+  --blue: #4385BE;
+  --purple: #8B7EC8;
+  --magenta: #CE5D97;
+
+  /* UI mapping - dark mode */
+  --color-bg: var(--black);
+  --color-bg-2: var(--base-950);
+  --color-ui: var(--base-900);
+  --color-ui-2: var(--base-850);
+  --color-ui-3: var(--base-800);
+  --color-tx: var(--base-200);
+  --color-tx-2: var(--base-500);
+  --color-tx-3: var(--base-700);
+  --color-action: var(--cyan);
+  --color-re: var(--red);
+  --color-or: var(--orange);
+  --color-ye: var(--yellow);
+  --color-gr: var(--green);
+  --color-cy: var(--cyan);
+  --color-bl: var(--blue);
+  --color-pu: var(--purple);
+  --color-ma: var(--magenta);
+}

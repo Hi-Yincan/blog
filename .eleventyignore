@@ -1,0 +1,17 @@
+README.md
+content/README.md
+docs/
+docs4human/
+doc/
+doc4human/
+node_modules/
+.git/
+.gitignore
+package.json
+package-lock.json
+.eleventy.js
+ARCHITECTURE.md
+CLAUDE.md
+DESIGN.md
+FRONTEND.md
+PLANS.md

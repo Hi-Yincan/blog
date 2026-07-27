@@ -1,0 +1,339 @@
+/* Main stylesheet - replicating stephango.com design */
+
+/* ===== Reset and base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 10px base for easy rem calculation */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--color-tx);
+  background-color: var(--color-bg);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 37em;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 88vw;
+    padding: 0 1rem;
+  }
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2.0rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 860px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+  }
+}
+
+p {
+  margin-bottom: 1.2em;
+}
+
+a {
+  color: var(--color-action);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+a:hover {
+  border-bottom-color: var(--color-action);
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "Cascadia Code", "SF Mono", Menlo, "Courier New", monospace;
+  font-size: 0.9em;
+  background-color: var(--color-ui);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: var(--color-ui);
+  padding: 1.5rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--color-ui-3);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--color-tx-2);
+  font-style: italic;
+}
+
+/* ===== Header / Navigation ===== */
+.site-header {
+  padding: 4rem 0 2rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.site-nav a {
+  color: var(--color-tx);
+  border: none;
+  font-size: 1.6rem;
+}
+
+.site-nav a:hover {
+  color: var(--color-action);
+  border: none;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: var(--color-tx);
+  transition: opacity 0.2s;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.theme-dark .light-icon {
+  display: none;
+}
+
+.theme-dark .dark-icon {
+  display: inline;
+}
+
+:not(.theme-dark) .dark-icon {
+  display: none;
+}
+
+:not(.theme-dark) .light-icon {
+  display: inline;
+}
+
+/* ===== Post list (homepage style) ===== */
+.post-list {
+  list-style: none;
+  margin: 3rem 0;
+}
+
+.post-item {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.post-date {
+  color: var(--color-tx-3);
+  font-size: 1.6rem;
+  white-space: nowrap;
+  min-width: 8rem;
+}
+
+.post-title {
+  color: var(--color-tx);
+  font-size: 1.8rem;
+  border: none;
+}
+
+.post-title:hover {
+  color: var(--color-action);
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .post-item {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .post-date {
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== Topics / Tags ===== */
+.topics {
+  margin: 4rem 0;
+}
+
+.topics h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.tag-list a {
+  color: var(--color-tx-2);
+  font-size: 1.6rem;
+}
+
+.tag-list a::before {
+  content: '/';
+  color: var(--color-tx-3);
+  margin-right: 0.2em;
+}
+
+.tag-list a:hover {
+  color: var(--color-action);
+}
+
+/* ===== Post content ===== */
+.post-header {
+  margin-bottom: 3rem;
+}
+
+.post-meta {
+  color: var(--color-tx-3);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.post-content {
+  margin-bottom: 6rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--color-ui-3);
+  margin: 3rem 0;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  padding: 6rem 0 4rem;
+  border-top: 1px solid var(--color-ui-3);
+  margin-top: 6rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: var(--color-tx-2);
+  font-size: 1.6rem;
+}
+
+.social-links a:hover {
+  color: var(--color-action);
+}
+
+.copyright {
+  color: var(--color-tx-3);
+  font-size: 1.4rem;
+}
+
+/* ===== Utilities ===== */
+.hidden {
+  display: none;
+}
+
+/* Spacing utilities (matching stephango.com) */
+.p { padding: 1rem; }
+.pp { padding: 2rem; }
+.m { margin-top: 2rem; margin-bottom: 2rem; }
+.s { margin-top: 4rem; margin-bottom: 4rem; }
+.ss { margin-top: 6rem; margin-bottom: 6rem; }
+.l { margin-top: 8rem; margin-bottom: 8rem; }
+.st { margin-top: 1rem; }
+.sr { margin-right: 1rem; }
+.sb { margin-bottom: 1rem; }
+.sl { margin-left: 1rem; }
+
+/* Mobile visibility */
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) {
+  .show-mobile {
+    display: none;
+  }
+}

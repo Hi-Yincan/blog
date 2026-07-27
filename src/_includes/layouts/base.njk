@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or 'Personal blog with minimalist design and Flexoki color scheme' }}">
+  <meta name="author" content="Yincan Huang">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="Yincan Huang">
+  <meta property="og:url" content="{{ page.url }}">
+  <meta property="og:title" content="{{ title or 'Yincan Huang' }}">
+  <meta property="og:description" content="{{ description or 'Personal blog' }}">
+  <meta property="og:type" content="article">
+
+  <title>{{ title or 'Yincan Huang' }}</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/flexoki.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- Theme detection script (inline to prevent FOUC) -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    {% include "partials/header.njk" %}
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    {% include "partials/footer.njk" %}
+  </div>
+
+  <script src="/js/theme.js"></script>
+</body>
+</html>
