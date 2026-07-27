@@ -5,7 +5,6 @@ dist/
 
 # Dependencies
 node_modules/
-package-lock.json
 
 # Development docs (local only, not for GitHub)
 docs/
