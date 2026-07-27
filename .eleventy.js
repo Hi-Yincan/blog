@@ -80,6 +80,7 @@ module.exports = function(eleventyConfig) {
       includes: "src/_includes",
       data: "src/_data"
     },
+    pathPrefix: "/blog/",
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

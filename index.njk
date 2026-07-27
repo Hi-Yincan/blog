@@ -23,7 +23,7 @@ title: Yincan Huang
   <h2>Topics</h2>
   <ul class="tag-list">
     {% for tag in collections.tagList %}
-    <li><a href="/topics/{{ tag | slugify }}/">{{ tag }}</a></li>
+    <li><a href="{{ ('/topics/' + (tag | slugify) + '/') | url }}">{{ tag }}</a></li>
     {% endfor %}
   </ul>
 </section>

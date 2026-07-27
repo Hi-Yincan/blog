@@ -16,8 +16,8 @@
   <title>{{ title or 'Yincan Huang' }}</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/styles/flexoki.css">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="{{ '/styles/flexoki.css' | url }}">
+  <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
 
   <!-- Theme detection script (inline to prevent FOUC) -->
   <script>
@@ -41,6 +41,6 @@
     {% include "partials/footer.njk" %}
   </div>
 
-  <script src="/js/theme.js"></script>
+  <script src="{{ '/js/theme.js' | url }}"></script>
 </body>
 </html>
