@@ -4,7 +4,7 @@
   "description": "A minimalist personal blog with Flexoki color scheme",
   "scripts": {
     "serve": "eleventy --serve",
-    "build": "eleventy",
+    "build": "rm -rf _site && eleventy",
     "debug": "DEBUG=Eleventy* eleventy"
   },
   "keywords": [
