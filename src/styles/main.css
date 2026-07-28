@@ -22,7 +22,7 @@ body {
 
 /* ===== Layout ===== */
 .container {
-  max-width: 37em;
+  max-width: 40em;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -155,24 +155,33 @@ blockquote {
 
 /* ===== Header / Navigation ===== */
 .site-header {
-  padding: 4rem 0 2rem;
+  padding: 2rem 0;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 2.4rem;
   margin-bottom: 4rem;
+}
+
+.nav-home {
+  flex-grow: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin-right: 1rem;
 }
 
 .site-nav a {
   color: var(--color-tx-2);
+  text-decoration: none;
   border: none;
-  font-size: 1.8rem;
-  transition: color 0.15s ease, background-color 0.15s ease;
-  padding: 0.2em 0.4em;
-  margin: -0.2em -0.4em;
-  border-radius: 4px;
+  font-size: 2rem;
+  transition: color 0.15s ease;
+  padding: 0.2em 0;
+  border-radius: 0;
 }
 
 .site-nav a:hover {
@@ -181,7 +190,7 @@ blockquote {
 }
 
 .site-nav a:active {
-  background-color: var(--color-ui);
+  background-color: color-mix(in srgb, var(--color-action) 20%, transparent);
   color: var(--color-tx);
 }
 
@@ -245,6 +254,61 @@ blockquote {
   opacity: 1;
 }
 
+/* ===== Section titles (stephango style) ===== */
+.section-title {
+  margin: 0 0 1.5rem;
+  font-weight: 400;
+  color: var(--color-tx-2);
+}
+
+.section-title a {
+  color: var(--color-tx-2);
+  text-decoration: none;
+}
+
+.section-title a:hover {
+  color: var(--color-action);
+}
+
+/* Section dividers */
+.section-divider {
+  margin: 4rem 0;
+}
+
+/* ===== Latest post preview ===== */
+.latest-post {
+  margin: 0 0 2rem;
+}
+
+.latest-post h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.latest-post h3 a {
+  text-decoration: none;
+  color: var(--color-tx);
+}
+
+.latest-post h3 a:hover {
+  color: var(--color-action);
+}
+
+.latest-post .post-meta {
+  color: var(--color-tx-3);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.latest-post .post-excerpt {
+  color: var(--color-tx-2);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
 /* ===== Post list (homepage style) ===== */
 .post-list {
   list-style: none;
@@ -268,7 +332,7 @@ blockquote {
 .post-title {
   color: var(--color-tx);
   font-size: 1.8rem;
-  border: none;
+  text-decoration: none;
 }
 
 .post-title:hover {
@@ -287,36 +351,62 @@ blockquote {
   }
 }
 
+/* ===== Writing archive list (stephango style) ===== */
+.writing-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.writing-list li {
+  padding: 0.6rem 0;
+}
+
+.writing-list a {
+  text-decoration: none;
+}
+
+.writing-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.writing-date {
+  color: var(--color-tx-3);
+  font-size: 1.4rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.writing-title {
+  color: var(--color-tx);
+}
+
+.writing-title:hover {
+  color: var(--color-action);
+}
+
 /* ===== Topics / Tags ===== */
-.topics {
-  margin: 4rem 0;
-}
-
-.topics h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.tag-list {
+.tag-cloud {
+  margin: 0 0 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  list-style: none;
+  gap: 0.4em 0;
 }
 
-.tag-list a {
+.tag-link {
   color: var(--color-tx-2);
   font-size: 1.6rem;
+  text-decoration: none;
 }
 
-.tag-list a::before {
-  content: '/';
-  color: var(--color-tx-3);
-  margin-right: 0.2em;
-}
-
-.tag-list a:hover {
+.tag-link:hover {
   color: var(--color-action);
+}
+
+.tag-comma {
+  color: var(--color-tx-3);
 }
 
 /* ===== Post content ===== */

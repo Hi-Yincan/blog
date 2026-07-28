@@ -7,35 +7,39 @@ title: Yincan Huang
   <p>Ideas, essays, and projects.</p>
 </section>
 
-<section class="latest-posts">
-  <h2>Latest</h2>
-  <ul class="post-list">
-    {% for post in collections.posts | reverse | limit(5) %}
-    <li class="post-item">
-      <time class="post-date">{{ post.date | yearMonth }}</time>
-      <a href="{{ post.url | url }}" class="post-title">{{ post.data.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+<p class="section-title"><a href="{{ collections.posts[0].url | url }}" class="plain">Latest</a></p>
 
-<section class="topics">
-  <h2>Topics</h2>
-  <ul class="tag-list">
-    {% for tag in collections.tagList %}
-    <li><a href="{{ ('/topics/' + (tag | slugify) + '/') | url }}">{{ tag }}</a></li>
-    {% endfor %}
-  </ul>
-</section>
+<article class="latest-post">
+  <h3><a href="{{ collections.posts[0].url | url }}">{{ collections.posts[0].data.title }}</a></h3>
+  <div class="post-meta">
+    <time>{{ collections.posts[0].date | readableDate }}</time>
+    <span> · </span>
+    <span>{{ collections.posts[0].templateContent | readingTime }}</span>
+  </div>
+  {% if collections.posts[0].data.description %}
+  <p class="post-excerpt">{{ collections.posts[0].data.description }}</p>
+  {% endif %}
+</article>
 
-<section class="all-posts">
-  <h2>Archive</h2>
-  <ul class="post-list">
-    {% for post in collections.posts %}
-    <li class="post-item">
-      <time class="post-date">{{ post.date | yearMonth }}</time>
-      <a href="{{ post.url | url }}" class="post-title">{{ post.data.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+<hr class="section-divider">
+
+<p class="section-title"><a href="{{ '/topics/' | url }}" class="plain">Topics</a></p>
+
+<div class="tag-cloud">
+  {% for tag in collections.tagList %}
+  <a href="{{ ('/topics/' + (tag | slugify) + '/') | url }}" class="tag-link">{{ tag }}</a>{% if not loop.last %}<span class="tag-comma">, </span>{% endif %}
+  {% endfor %}
+</div>
+
+<hr class="section-divider">
+
+<p class="section-title"><a href="{{ '/writing/' | url }}" class="plain">Archive</a></p>
+
+<ul class="post-list">
+  {% for post in collections.posts %}
+  <li class="post-item">
+    <time class="post-date">{{ post.date | yearMonth }}</time>
+    <a href="{{ post.url | url }}" class="post-title">{{ post.data.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
