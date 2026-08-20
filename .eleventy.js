@@ -55,7 +55,7 @@ module.exports = function(eleventyConfig) {
   // Collections
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("content/posts/*.md")
-      .filter(post => post.data.published !== false)
+      .filter(post => post.data.published !== false && !post.data.unlisted)
       .sort((a, b) => b.date - a.date);
   });
 
@@ -63,10 +63,10 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("content/pages/*.md");
   });
 
-  // Set permalink for posts
+  // Set permalink for posts (frontmatter permalink overrides the default)
   eleventyConfig.addGlobalData("eleventyComputed", {
     permalink: (data) => {
-      if (data.page.inputPath.includes("content/posts/")) {
+      if (data.page.inputPath.includes("content/posts/") && !data.permalink) {
         const filename = data.page.fileSlug;
         return `/posts/${filename}/`;
       }
@@ -74,10 +74,11 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  // Extract all unique tags from posts
+  // Extract all unique tags from visible posts (skip unlisted/drafts)
   eleventyConfig.addCollection("tagList", function(collectionApi) {
     const tagSet = new Set();
     collectionApi.getAll().forEach(item => {
+      if (item.data.unlisted || item.data.published === false) return;
       if (item.data.tags) {
         item.data.tags.forEach(tag => tagSet.add(tag));
       }

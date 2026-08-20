@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description or 'Personal blog with minimalist design and Flexoki color scheme' }}">
   <meta name="author" content="Yincan Huang">
+  {% if unlisted %}<meta name="robots" content="noindex">{% endif %}
 
   <!-- Open Graph / Social -->
   <meta property="og:site_name" content="Yincan Huang">
