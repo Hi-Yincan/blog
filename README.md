@@ -62,6 +62,31 @@ git push origin main
 # 3. CI 自动构建和部署（约 2-3 分钟）
 ```
 
+### 文章可见性控制
+
+通过文章 frontmatter 控制「是否上线」和「是否出现在列表」：
+
+| frontmatter | 效果 |
+|-------------|------|
+| （默认，不写） | 正常发布，出现在首页 / 归档 / 标签页 / RSS |
+| `unlisted: true` | 上线但**不出现在任何列表**，仅直接链接可见，自动添加 `noindex`（建议搜索引擎不要收录） |
+| `unlisted: true` + `permalink: /me/` | 同上，并可自定义链接（不写则默认为 `/posts/{slug}/`） |
+| `permalink: false` | **完全不上线**：内容保留在仓库，但不生成任何页面（适合暂存草稿） |
+
+示例 —— 一篇仅通过链接分享的文章：
+
+```markdown
+---
+layout: layouts/post.njk
+title: 文章标题
+date: 2026-08-21
+unlisted: true
+permalink: /me/
+---
+```
+
+> 注意：`unlisted` 只是「不列出」，页面仍可被直接访问；`permalink: false` 才是「彻底不上网」。两者可独立使用。
+
 ---
 
 ## 🛠 技术栈
