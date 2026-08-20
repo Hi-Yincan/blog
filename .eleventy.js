@@ -66,7 +66,7 @@ module.exports = function(eleventyConfig) {
   // Set permalink for posts (frontmatter permalink overrides the default)
   eleventyConfig.addGlobalData("eleventyComputed", {
     permalink: (data) => {
-      if (data.page.inputPath.includes("content/posts/") && !data.permalink) {
+      if (data.page.inputPath.includes("content/posts/") && data.permalink === undefined) {
         const filename = data.page.fileSlug;
         return `/posts/${filename}/`;
       }
